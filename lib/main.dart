@@ -1,4 +1,5 @@
-import 'package:fiore_di_zucca_il_ricettario/constants.dart';
+import 'package:fiore_di_zucca_il_ricettario/utils/constants.dart';
+import 'package:fiore_di_zucca_il_ricettario/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: null,
+      home: const HomePage(),
     );
   }
 }

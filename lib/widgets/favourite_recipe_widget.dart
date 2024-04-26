@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+
 import '../model/recipe.dart';
 
-class RecipeWidget extends StatelessWidget {
+class FavouriteRecipeWidget extends StatelessWidget {
   final Recipe recipe;
 
-  const RecipeWidget({
+  const FavouriteRecipeWidget({
     required this.recipe,
     super.key
   });
@@ -15,32 +16,33 @@ class RecipeWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        height: 140.0,
+        height: 300.0,
+        width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.grey[300],
           borderRadius: BorderRadius.circular(20.0),
+          color: Colors.grey[300],
         ),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // IMAGE
             Container(
-              height: 140.0,
-              width: 140.0,
+              height: 180.0,
+              width: double.infinity,
               decoration:  BoxDecoration(
                 color: Colors.grey[200],
-                //color: const Color.fromARGB(255, 255, 228, 89),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
                 ),
               ),
               child: const Icon(Iconsax.cake, size: 50.0,), //Image.asset(widget.imagePath,),//
             ),
-    
+      
             // TITLE AND DESCRIPTION
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.fromLTRB(30.0, 15, 15, 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +54,7 @@ class RecipeWidget extends StatelessWidget {
                         fontSize: 20.0
                       ),
                     ),
-                    const SizedBox(height: 15.0,),
+                    const SizedBox(height: 12.0,),
                     Text(
                       recipe.description,
                       style: const TextStyle(
@@ -64,8 +66,8 @@ class RecipeWidget extends StatelessWidget {
               ),
             )
           ],
-        )
-        
+        ),
+    
       ),
     );
   }

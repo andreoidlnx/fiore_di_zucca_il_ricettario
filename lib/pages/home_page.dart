@@ -1,8 +1,9 @@
-import 'package:fiore_di_zucca_il_ricettario/utils/constants.dart';
+import 'package:fiore_di_zucca_il_ricettario/pages/favourite_page.dart';
 import 'package:fiore_di_zucca_il_ricettario/widgets/recipe_widget.dart';
 import 'package:fiore_di_zucca_il_ricettario/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import '../model/recipe.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,6 +15,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _scrollController = ScrollController();
   bool _isAppBarExpanded = true;
+
+  List<Recipe> recipeList=[
+    Recipe(title: "Fiori di zucca in pastella", description: "Fritti e buonissimi", imagePath: ""),
+    Recipe(title: "Pasta al forno", description: "Che dire!", imagePath: ""),
+    Recipe(title: "Pipi e patate", description: "Tanto olioooo", imagePath: ""),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +75,10 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: <Widget>[
               IconButton(
-                onPressed: () {}, 
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FavouritePage()),
+                ), 
                 icon: const Icon(Iconsax.heart),
                 color: Colors.black,
                 iconSize: 27.0,
@@ -87,12 +97,12 @@ class _HomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return const Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: RecipeWidget(title: "Fiori di zucca in pastella", description: "Fritti e buonissimi", imagePath: "lib/images/logo.png",)
+                return Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: RecipeWidget(recipe: recipeList[index],),
                 );
               },
-              childCount: 10,
+              childCount: recipeList.length,
             ),
           ),
 

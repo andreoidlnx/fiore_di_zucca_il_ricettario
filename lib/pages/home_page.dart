@@ -1,4 +1,5 @@
 import 'package:fiore_di_zucca_il_ricettario/pages/favourite_page.dart';
+import 'package:fiore_di_zucca_il_ricettario/pages/search_page.dart';
 import 'package:fiore_di_zucca_il_ricettario/widgets/recipe_widget.dart';
 import 'package:fiore_di_zucca_il_ricettario/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,11 @@ class _HomePageState extends State<HomePage> {
   List<Recipe> recipeList=[
     Recipe(title: "Fiori di zucca in pastella", description: "Fritti e buonissimi", imagePath: ""),
     Recipe(title: "Pasta al forno", description: "Che dire!", imagePath: ""),
+    Recipe(title: "Pipi e patate", description: "Tanto olioooo", imagePath: ""),
+    Recipe(title: "Pipi e patate", description: "Tanto olioooo", imagePath: ""),
+    Recipe(title: "Pipi e patate", description: "Tanto olioooo", imagePath: ""),
+    Recipe(title: "Pipi e patate", description: "Tanto olioooo", imagePath: ""),
+    Recipe(title: "Pipi e patate", description: "Tanto olioooo", imagePath: ""),
     Recipe(title: "Pipi e patate", description: "Tanto olioooo", imagePath: ""),
   ];
 
@@ -52,7 +58,7 @@ class _HomePageState extends State<HomePage> {
               width: 40.0,
               height: 40.0,
             ) : null,
-            backgroundColor: const Color.fromARGB(255, 254, 231, 118),
+            //  backgroundColor: const Color.fromARGB(255, 254, 231, 118),
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 color: const Color.fromARGB(255, 254, 231, 118),
@@ -67,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: SearchWidget(),
+                      child: SearchWidget(soloVisual: true,),
                     ),
                   ],
                 ),
@@ -84,7 +90,10 @@ class _HomePageState extends State<HomePage> {
                 iconSize: 27.0,
               ),
               !_isAppBarExpanded ? IconButton(
-                onPressed: () {}, 
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SearchPage()),
+                ), 
                 icon: const Icon(Iconsax.search_normal_1),
                 color: Colors.black,
                 iconSize: 27.0,

@@ -23,6 +23,11 @@ class _FavouritePageState extends State<FavouritePage> {
       appBar: AppBar(
         title: const Text("Ricette preferite"),
         centerTitle: true,
+        titleTextStyle: const TextStyle(
+          letterSpacing: 1.0,
+          fontSize: 20.0,
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(15.0),
